@@ -92,6 +92,8 @@ export default {
                 direction -= bearing
                 if (direction < 0) direction += 360
                 feature.properties[directionElement + 'BearingDirection'] = direction
+			        	feature.properties['customHeadWindSpeed'] = (_.toNumber(norm)/0.514) * Math.cos(_.toNumber(direction) * Math.PI / 180.0)
+                feature.properties['customCrossWindSpeed'] = (_.toNumber(norm)/0.514) * Math.sin(_.toNumber(direction) * Math.PI / 180.0)
               }
             }
           }
