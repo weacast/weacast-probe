@@ -61,9 +61,7 @@ export default {
       // Check if something to store for the element
       if (_.has(feature, propertyName)) {
         let data = {
-          [propertyName]: _.get(feature, propertyName),
-          // Because we will not go through service hooks in this case we have to format dates to basic object types manually
-          runTime: new Date(runTime.format()),
+          [propertyName]: _.get(feature, propertyName)
         }
         // Update derived direction values as well in this case
         if (isComponentOfDirection) {
@@ -76,6 +74,8 @@ export default {
         if (feature._id) {
           debugResults('Updating probe result for probe ' + feature.probeId + ' at ' + forecastTime.format() +
                        ' on run ' + runTime.format(), feature)
+          // Because we will not go through service hooks in this case we have to format dates to basic object types manually
+          data.runTime = new Date(runTime.format())
           // Call service hooks (DB update is skipped when bulk param is used)
           await resultService.update(feature._id, data, { bulk: true })
           // Create bulk operation for update
