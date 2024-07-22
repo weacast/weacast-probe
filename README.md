@@ -1,3 +1,5 @@
+> **Important:** this module is now deprecated, please use the corresponding package in the [weacast monorepo](https://github.com/weacast/weacast).
+
 # weacast-probe
 
 [![Build Status](https://travis-ci.com/weacast/weacast-probe.png?branch=master)](https://travis-ci.com/weacast/weacast-probe)
